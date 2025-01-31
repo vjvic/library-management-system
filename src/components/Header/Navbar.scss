@@ -2,9 +2,9 @@
 @use "../../styles/mixins" as *;
 
 .navbar {
+  @include divider(2px);
   display: flex;
   justify-content: space-between;
-  @include box-shadow(base);
   padding: 0 $space-3;
   height: $navbar-height;
   position: fixed;
@@ -29,4 +29,8 @@
 
 .user {
   @include item-center();
+
+  .user-icon {
+    color: $deactivated-text;
+  }
 }

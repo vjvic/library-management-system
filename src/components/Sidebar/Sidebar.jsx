@@ -1,4 +1,5 @@
 import "./sidebar.scss";
+import { useState } from "react";
 import { BsGear } from "react-icons/bs";
 import { BiHomeAlt } from "react-icons/bi";
 import { FaRegHeart } from "react-icons/fa";
@@ -36,6 +37,12 @@ const sidebarData = [
 ];
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
+  const [activeItem, setActiveItem] = useState(null);
+
+  const handleItemClick = (id) => {
+    setActiveItem(id);
+  };
+
   return (
     <aside className={`sidebar ${isOpen ? "open" : ""}`}>
       <div className="close-sidebar">
@@ -45,7 +52,11 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       </div>
 
       {sidebarData.map((s) => (
-        <div className="menu-item" key={s.id}>
+        <div
+          className={`menu-item ${activeItem === s.id ? "active" : ""}`}
+          key={s.id}
+          onClick={() => handleItemClick(s.id)}
+        >
           <div>
             {s.icon}
             <p>{s.menuText}</p>
@@ -55,9 +66,12 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         </div>
       ))}
 
-      <hr className="solid" />
+      <div className="solid" />
 
-      <div className="menu-item">
+      <div
+        className={`menu-item ${activeItem === "settings" ? "active" : ""}`}
+        onClick={() => handleItemClick("settings")}
+      >
         <div>
           <BsGear size={24} />
           <p>Settings</p>

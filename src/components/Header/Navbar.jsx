@@ -1,7 +1,7 @@
 import "./Navbar.scss";
 import Logo from "../../assets/logo.svg";
-import User from "../../assets/user.svg";
 import Menu from "../../assets/menu.svg";
+import { FiUser } from "react-icons/fi";
 
 const Navbar = ({ toggleSidebar }) => {
   return (
@@ -14,7 +14,7 @@ const Navbar = ({ toggleSidebar }) => {
       </div>
 
       <div className="user">
-        <img src={User} alt="user" />
+        <FiUser size={24} className="user-icon" />
         <p>User</p>
       </div>
     </nav>
