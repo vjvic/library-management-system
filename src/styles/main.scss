@@ -1,0 +1,32 @@
+@use "fonts";
+@use "variables" as *;
+@use "reset";
+@use "mixins";
+@use "headings";
+@use "body-text";
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.app {
+  display: grid;
+  grid-template-rows: $navbar-height auto;
+  grid-template-columns: $sidebar-width auto;
+  height: 100vh;
+
+  @media (max-width: 1280px) {
+    grid-template-columns: 0 auto;
+  }
+
+  .main-content {
+    padding: 1rem;
+    overflow-y: auto;
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+
+    @media (max-width: 1280px) {
+      grid-column: 1 / 3;
+    }
+  }
+}

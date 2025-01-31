@@ -1,0 +1,58 @@
+@use "variables" as *;
+
+// Body 1 (Paragraph)
+p {
+  font-size: $body1-size;
+  line-height: $body1-line-height;
+  letter-spacing: 0.5px;
+  color: $text-base-color;
+  font-weight: $font-weight-regular;
+}
+
+// Subtitle 1
+.subtitle1 {
+  font-size: $subtitle1-size;
+  line-height: $subtitle1-line-height;
+  letter-spacing: 0.5px;
+  color: $text-base-color;
+  font-weight: $font-weight-regular;
+
+  &.semibold {
+    font-weight: $font-weight-semibold;
+  }
+}
+
+// Subtitle 2
+.subtitle2 {
+  font-size: $subtitle2-size;
+  line-height: $subtitle2-line-height;
+  letter-spacing: 0.1px;
+  color: $text-base-color;
+  font-weight: $font-weight-bold;
+}
+
+// Body 2 (Smaller body text)
+.body2 {
+  font-size: $body2-size;
+  line-height: $body2-line-height;
+  color: $text-base-color;
+  font-weight: $font-weight-regular;
+}
+
+// Caption
+.caption {
+  font-size: $caption-size;
+  line-height: $caption-line-height;
+  letter-spacing: $letter-spacing-caption;
+  color: $text-base-color;
+  font-weight: $font-weight-regular;
+}
+
+// Overline
+.overline {
+  font-size: $overline-size;
+  line-height: $overline-line-height;
+  letter-spacing: $letter-spacing-overline;
+  color: $text-base-color;
+  font-weight: $font-weight-semibold;
+}

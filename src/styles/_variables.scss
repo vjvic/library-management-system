@@ -1,0 +1,112 @@
+// Colors
+//Primary colors
+$primary-color-light: #ffed8e;
+$primary-color-main: #eac698;
+$primary-color-dark: #f0c31d;
+
+//Secondary colors
+$secondary-color-light: #c9a0ff;
+$secondary-color-main: #7838cc;
+$secondary-color-dark: #4f1699;
+
+//
+$background-color: #ffffff;
+$background-color-1: #f8f9fc;
+$background-color-2: #f1f3f9;
+
+//Typography
+
+// Base Color
+$text-base-color: #202020;
+$text-light-color: #ffffff;
+
+// Opacities
+$primary-opacity: 1; // Fully opaque
+$secondary-opacity: 0.8; // 80% opacity
+$tertiary-opacity: 0.7; // 70% opacity
+$deactivated-opacity: 0.5; // 50% opacity
+
+// Typography Colors with Opacity
+$primary-text: rgba($text-base-color, $primary-opacity);
+$secondary-text: rgba($text-base-color, $secondary-opacity);
+$tertiary-text: rgba($text-base-color, $tertiary-opacity);
+$deactivated-text: rgba($text-base-color, $deactivated-opacity);
+// White text
+$primary-text-light: rgba($text-light-color, $primary-opacity);
+$secondary-text-light: rgba($text-light-color, $secondary-opacity);
+$tertiary-text-light: rgba($text-light-color, $tertiary-opacity);
+
+//Border radius
+$border-radius-xs: 4px;
+$border-radius-sm: 8px;
+$border-radius-md: 12px;
+$border-radius-lg: 16px;
+$border-radius-full: 50%;
+
+// Breakpoints
+$breakpoint-xs: 600px;
+$breakpoint-sm: 960px;
+$breakpoint-md: 1280px;
+$breakpoint-lg: 1600px;
+$breakpoint-xl: 1920px;
+
+// Font weights
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+$font-weight-semibold: 600;
+
+// Letter Spacing
+$letter-spacing-negative: -1.5px;
+$letter-spacing-small: -0.5px;
+$letter-spacing-medium: 0px;
+$letter-spacing-large: 0.25px;
+$letter-spacing-button: 1.25px;
+$letter-spacing-caption: 0.4px;
+$letter-spacing-overline: 1.5px;
+
+// Heading sizes
+$h1-size: 89.8px;
+$h1-line-height: 112px;
+$h2-size: 67.34px;
+$h2-line-height: 72px;
+$h3-size: 50.52px;
+$h3-line-height: 56px;
+$h4-size: 37.9px;
+$h4-line-height: 40px;
+$h5-size: 28.43px;
+$h5-line-height: 32px;
+
+// Body text sizes
+$body1-size: 16px;
+$body1-line-height: 24px;
+$body2-size: 12px;
+$body2-line-height: 16px;
+$subtitle1-size: 16px;
+$subtitle1-line-height: 24px;
+$subtitle2-size: 12px;
+$subtitle2-line-height: 24px;
+
+// Button and Caption Sizes
+$button-size: 12px;
+$button-line-height: 16px;
+$caption-size: 12px;
+$caption-line-height: 16px;
+$overline-size: 12px;
+$overline-line-height: 16px;
+
+//Spacing
+$space-unit: 8px;
+$space-1: $space-unit;
+$space-2: $space-unit * 2; // 16px
+$space-3: $space-unit * 3; // 24px
+$space-4: $space-unit * 4; // 32px
+$space-5: $space-unit * 5; // 40px
+$space-6: $space-unit * 6; // 48px
+$space-7: $space-unit * 7; // 56px
+$space-8: $space-unit * 8; // 64px
+
+//Navbar
+$navbar-height: 64px;
+
+//Sidebar
+$sidebar-width: 350px;

@@ -1,0 +1,22 @@
+@use "variables" as *;
+
+//Box shadows
+@mixin box-shadow($size) {
+  @if $size == base {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  } @else if $size == small {
+    box-shadow: rgba(99, 99, 99, 0.15) 0px 1px 4px 0px;
+  } @else if $size == medium {
+    box-shadow: rgba(99, 99, 99, 0.25) 0px 4px 12px 0px;
+  } @else if $size == large {
+    box-shadow: rgba(99, 99, 99, 0.3) 0px 8px 16px 0px;
+  } @else {
+    @error "Invalid size provided for box-shadow. Use: base, small, medium, or large.";
+  }
+}
+
+@mixin item-center($gap: $space-2) {
+  display: flex;
+  align-items: center;
+  gap: $gap;
+}

@@ -1,0 +1,32 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  @include box-shadow(base);
+  padding: 0 $space-3;
+  height: $navbar-height;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $background-color;
+  z-index: 10;
+}
+
+.logo {
+  @include item-center();
+
+  button {
+    display: none;
+
+    @media (max-width: $breakpoint-md) {
+      display: block;
+    }
+  }
+}
+
+.user {
+  @include item-center();
+}

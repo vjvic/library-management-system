@@ -1,0 +1,86 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.sidebar {
+  @include box-shadow(base);
+  position: fixed;
+  top: $navbar-height;
+  left: 0;
+  height: calc(100vh - $navbar-height); /* Full height minus navbar */
+  width: $sidebar-width;
+  background-color: $background-color;
+  padding: 0 $space-1;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+
+  @media (max-width: $breakpoint-md) {
+    transform: translateX(-100%);
+    height: 100vh;
+    top: 0;
+    z-index: 9999;
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    width: 100%;
+  }
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  .close-sidebar {
+    display: flex;
+    justify-content: end;
+    margin-bottom: $space-2;
+    padding: $space-2;
+    cursor: pointer;
+
+    @media (min-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+
+  .menu-item {
+    margin: $space-1 0;
+    cursor: pointer;
+    padding: $space-1;
+    display: flex;
+    justify-content: space-between;
+
+    &:nth-child(4),
+    &:nth-child(5),
+    &:nth-child(6),
+    &:nth-child(8) {
+      color: $deactivated-text;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: $background-color-2;
+      color: $primary-text;
+      padding: 4px 8px;
+      text-align: center;
+      border-radius: $border-radius-full;
+    }
+
+    div:first-child {
+      @include item-center();
+    }
+
+    &:hover,
+    &:active {
+      background-color: $primary-color-dark;
+      color: $text-light-color;
+      border-radius: $border-radius-sm;
+      p {
+        color: $secondary-text-light;
+      }
+    }
+  }
+
+  hr.solid {
+    border-top: 2px solid #e1e6ef;
+    margin: $space-3 0;
+  }
+}

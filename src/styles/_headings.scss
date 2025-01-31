@@ -1,0 +1,111 @@
+@use "variables" as *;
+
+h1 {
+  font-size: $h1-size;
+  line-height: $h1-line-height;
+  font-weight: $font-weight-regular;
+  letter-spacing: $letter-spacing-negative;
+  color: $text-base-color;
+
+  &.bold {
+    font-weight: $font-weight-bold;
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    font-size: 60px;
+    line-height: 80px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 75px;
+    line-height: 95px;
+  }
+}
+
+h2 {
+  font-size: $h2-size;
+  line-height: $h2-line-height;
+  font-weight: $font-weight-regular;
+  letter-spacing: $letter-spacing-small;
+  color: $text-base-color;
+
+  &.bold {
+    font-weight: $font-weight-bold;
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    font-size: 50px;
+    line-height: 60px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 55px;
+    line-height: 65px;
+  }
+}
+
+h3 {
+  font-size: $h3-size;
+  line-height: $h3-line-height;
+  font-weight: $font-weight-regular;
+  letter-spacing: $letter-spacing-medium;
+  color: $text-base-color;
+
+  &.bold {
+    font-weight: $font-weight-bold;
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    font-size: 40px;
+    line-height: 48px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 45px;
+    line-height: 55px;
+  }
+}
+
+h4 {
+  font-size: $h4-size;
+  line-height: $h4-line-height;
+  font-weight: $font-weight-regular;
+  letter-spacing: $letter-spacing-large;
+  color: $text-base-color;
+
+  &.bold {
+    font-weight: $font-weight-bold;
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 35px;
+    line-height: 42px;
+  }
+}
+
+h5 {
+  font-size: $h5-size;
+  line-height: $h5-line-height;
+  font-weight: $font-weight-regular;
+  letter-spacing: $letter-spacing-small;
+  color: $text-base-color;
+
+  &.bold {
+    font-weight: $font-weight-bold;
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 26px;
+    line-height: 30px;
+  }
+}
