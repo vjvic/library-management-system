@@ -1,0 +1,18 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.favorites-button {
+  color: $default-color;
+  border: 1px solid $default-color;
+  border-radius: $border-radius-full;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: $destructive-color;
+    color: $primary-text-light;
+  }
+}

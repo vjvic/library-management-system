@@ -1,0 +1,104 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.filter-section {
+  max-width: 1000px;
+  margin: auto;
+
+  .search-wrapper {
+    @include item-center(0);
+    position: relative;
+    margin-top: $space-7;
+    input {
+      height: 50px;
+      border-radius: $border-radius-sm 0 0 $border-radius-sm !important;
+    }
+
+    button {
+      height: 50px;
+      border-radius: 0 $border-radius-sm $border-radius-sm 0 !important;
+    }
+
+    .book-numbers {
+      border: 1px solid $default-color;
+      padding: $space-1 $space-2;
+      position: absolute;
+      top: -40px;
+      left: 8px;
+      border-radius: $border-radius-xs;
+
+      p {
+        color: $primary-color-dark;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  .filters-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-gap: $space-1;
+    margin-top: $space-2;
+    flex-wrap: wrap;
+  }
+
+  .search-filter-button {
+    margin-top: $space-2;
+    @media (max-width: $breakpoint-xs) {
+      display: flex;
+      justify-content: center;
+    }
+
+    button {
+      color: $default-color;
+      border-bottom: 1px solid $default-color;
+      text-align: center;
+
+      &:hover {
+        border-bottom: 1px solid $hover-color;
+        color: $hover-color;
+      }
+    }
+  }
+}
+
+.book-section {
+  max-width: 1280px;
+  margin: auto;
+  padding: $space-4;
+
+  .filter-book {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: $space-4;
+    flex-wrap: wrap;
+
+    @media (max-width: $breakpoint-xs) {
+      justify-content: center;
+    }
+  }
+
+  .books-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $space-4;
+    justify-content: center;
+    align-items: start;
+
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    @media (max-width: $breakpoint-xs) {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: $space-2;
+    }
+  }
+}

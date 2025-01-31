@@ -3,7 +3,6 @@
 
 .dropdown {
   position: relative;
-  width: 130px;
 
   .dropdown-header {
     padding: 8px 12px;
@@ -13,11 +12,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: $space-1;
   }
 
   &.borderless .dropdown-header {
     border: none;
-    color: $primary-color-main;
+    color: $default-color;
   }
 
   &.bordered .dropdown-header {
@@ -29,10 +29,12 @@
     width: 100%;
     @include box-shadow("small");
     border-radius: $border-radius-xs;
-    margin-top: 4px;
+    margin-top: $space-2; // Increased spacing to avoid overlap
     overflow: hidden;
     max-height: 0;
     transition: max-height 0.3s ease-in-out;
+    background-color: $background-color; // Ensures it's visible
+    z-index: 10; // Higher z-index for proper stacking
   }
 
   .dropdown-list-wrapper.open {
