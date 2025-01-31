@@ -1,7 +1,8 @@
 import { useState } from "react";
-import Navbar from "./components/Header/Navbar";
-import Sidebar from "./components/Sidebar/Sidebar";
 import "./styles/main.scss";
+import Navbar from "./components/Navbar/Navbar";
+import Sidebar from "./components/Sidebar/Sidebar";
+import Home from "./pages/Home/Home";
 
 const App = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -15,8 +16,7 @@ const App = () => {
       <Navbar toggleSidebar={toggleSidebar} />
       <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
       <main className={`main-content ${sidebarOpen ? "with-sidebar" : ""}`}>
-        <h3>Hello</h3>
-        <p>Welcome to the application. This is your main content area.</p>
+        <Home />
       </main>
     </div>
   );

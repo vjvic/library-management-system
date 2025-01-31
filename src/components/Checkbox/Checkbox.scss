@@ -1,0 +1,65 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  gap: $space-1;
+
+  input[type="checkbox"] {
+    appearance: none;
+    width: 1.5em;
+    height: 1.5em;
+    border: 2px solid $primary-color-main;
+    border-radius: $border-radius-xs;
+    background-color: $background-color;
+    display: inline-block;
+    position: relative;
+    transition: all 0.2s ease;
+
+    &:checked {
+      background-color: $default-color;
+      border-color: $default-color;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        width: 40%;
+        height: 60%;
+        border: solid $text-light-color;
+        border-width: 0 2px 2px 0;
+        box-sizing: border-box;
+      }
+    }
+
+    &:hover:not(:disabled) {
+      border-color: $primary-color-dark;
+    }
+
+    &:disabled {
+      background-color: $disabled-color;
+      border-color: $disabled-color;
+      cursor: not-allowed;
+    }
+  }
+
+  &--small input[type="checkbox"] {
+    width: 1em;
+    height: 1em;
+  }
+
+  &--large input[type="checkbox"] {
+    width: 2em;
+    height: 2em;
+  }
+
+  label {
+    font-size: $body1-size;
+    color: $primary-text;
+    cursor: pointer;
+  }
+}

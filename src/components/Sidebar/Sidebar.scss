@@ -83,5 +83,6 @@
 
   .solid {
     @include divider(2px);
+    margin: $space-2 0;
   }
 }
