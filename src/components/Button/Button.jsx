@@ -7,7 +7,8 @@ const Button = ({
   disabled = false,
   onClick,
   children,
-  icon,
+  iconLeft,
+  iconRight,
 }) => {
   const sizeClass =
     size === "small"
@@ -24,8 +25,9 @@ const Button = ({
       disabled={disabled}
       onClick={onClick}
     >
-      {icon && <span className="icon">{icon}</span>}
+      {iconLeft && <span className="icon">{iconLeft}</span>}
       {children}
+      {iconRight && <span className="icon">{iconRight}</span>}
     </button>
   );
 };

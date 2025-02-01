@@ -1,0 +1,48 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.details-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: $space-1;
+
+  .detail-1,
+  .detail-2 {
+    display: flex;
+    gap: $space-2;
+    margin: 0.3rem 0;
+  }
+
+  h4 {
+    font-weight: bold;
+    margin-bottom: $space-2;
+  }
+
+  .author {
+    font-size: 1.2rem;
+  }
+
+  .details-buttons {
+    display: flex;
+    align-items: end;
+    gap: $space-2;
+  }
+
+  .ratings {
+    margin-top: $space-1;
+    div {
+      @include item-center();
+    }
+  }
+}
+
+.description {
+  margin-top: $space-3;
+  h5 {
+    margin-bottom: $space-2;
+  }
+}
+
+img {
+  width: 100%;
+}

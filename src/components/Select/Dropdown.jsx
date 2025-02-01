@@ -6,14 +6,22 @@ const Dropdown = ({
   options,
   bordered = false,
   placeholder = "Select an option",
+  onChange,
+  size,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState(null);
   const dropdownRef = useRef(null);
+
+  const sizeClass =
+    size === "small"
+      ? "dropdown--small"
+      : size === "large"
+      ? "dropdown--large"
+      : "";
 
   const toggleDropdown = () => setIsOpen(!isOpen);
   const handleSelect = (option) => {
-    setSelected(option);
+    onChange({ target: { value: option } });
     setIsOpen(false);
   };
 
@@ -32,7 +40,9 @@ const Dropdown = ({
   return (
     <div
       ref={dropdownRef}
-      className={`dropdown ${bordered ? "bordered" : "borderless"}`}
+      className={`dropdown ${
+        bordered ? "bordered" : "borderless"
+      } ${sizeClass}`}
     >
       <div className="dropdown-header" onClick={toggleDropdown}>
         {placeholder}

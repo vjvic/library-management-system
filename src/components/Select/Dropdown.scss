@@ -3,6 +3,15 @@
 
 .dropdown {
   position: relative;
+  width: 200px;
+
+  &--small {
+    width: 160px;
+  }
+
+  &--large {
+    width: 200px;
+  }
 
   .dropdown-header {
     padding: 8px 12px;
@@ -29,12 +38,12 @@
     width: 100%;
     @include box-shadow("small");
     border-radius: $border-radius-xs;
-    margin-top: $space-2; // Increased spacing to avoid overlap
+    margin-top: $space-2;
     overflow: hidden;
     max-height: 0;
     transition: max-height 0.3s ease-in-out;
-    background-color: $background-color; // Ensures it's visible
-    z-index: 10; // Higher z-index for proper stacking
+    background-color: $background-color;
+    z-index: 10;
   }
 
   .dropdown-list-wrapper.open {

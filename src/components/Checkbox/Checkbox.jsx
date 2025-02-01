@@ -6,6 +6,7 @@ const Checkbox = ({
   checked = false,
   onChange,
   label,
+  name,
 }) => {
   const sizeClass =
     size === "small"
@@ -18,9 +19,10 @@ const Checkbox = ({
     <label className={`checkbox ${sizeClass}`}>
       <input
         type="checkbox"
+        name={name}
         disabled={disabled}
         checked={checked}
-        onChange={onChange}
+        onChange={(e) => onChange(e)}
       />
       {label && <span>{label}</span>}
     </label>

@@ -2,8 +2,7 @@
 @use "../../styles/mixins" as *;
 
 .button {
-  display: inline-flex;
-  align-items: center;
+  @include item-center();
   justify-content: center;
   font-size: $button-size;
   line-height: $button-line-height;

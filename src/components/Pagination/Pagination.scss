@@ -1,0 +1,39 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+
+  button.pagination-button {
+    height: 40px;
+    width: 40px;
+    border-radius: $border-radius-full;
+    color: $tertiary-text;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center;
+
+    &:hover {
+      background-color: $background-color-3;
+    }
+
+    &.active {
+      background-color: $default-color;
+      color: #fff;
+      border-color: $default-color;
+
+      &:hover {
+        background-color: $default-color;
+      }
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}

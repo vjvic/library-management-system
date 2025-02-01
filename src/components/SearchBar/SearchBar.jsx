@@ -1,7 +1,7 @@
 import "./SearchBar.scss";
 import { BsSearch } from "react-icons/bs";
 
-const SearchBar = ({ placeholder, value, onChange }) => {
+const SearchBar = ({ placeholder, value, onChange, name }) => {
   return (
     <div className="input-wrapper">
       <BsSearch className="search-icon" size={16} />
@@ -11,6 +11,7 @@ const SearchBar = ({ placeholder, value, onChange }) => {
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        name={name}
       />
     </div>
   );
