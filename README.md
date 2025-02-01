@@ -240,7 +240,9 @@ export default App;
 ### Usage
 
 ```jsx
-import Sidebar from "./Sidebar";
+import { useState } from "react";
+import Navbar from "./Navbar";
+import { FiUser } from "react-icons/fi";
 
 const App = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -251,13 +253,12 @@ const App = () => {
 
   return (
     <div>
-      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      <Navbar toggleSidebar={toggleSidebar} />
       <button onClick={toggleSidebar}>Toggle Sidebar</button>
+      <div>{isSidebarOpen ? "Sidebar is open" : "Sidebar is closed"}</div>
     </div>
   );
 };
-
-export default App;
 ```
 
 ### Props
