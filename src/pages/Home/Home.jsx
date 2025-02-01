@@ -104,6 +104,8 @@ const Home = () => {
     }
   };
 
+  console.log(bookList);
+
   return (
     <div>
       <section className="filter-section">

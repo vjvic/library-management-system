@@ -12,14 +12,18 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  overflow: auto;
 
   .overlay-content {
     position: relative;
     background: $background-color;
     padding: $space-4;
     border-radius: $border-radius-sm;
-    max-width: 800px;
-    width: 90%;
+    max-width: 90vw;
+    width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-sizing: border-box;
 
     .close-button {
       position: absolute;

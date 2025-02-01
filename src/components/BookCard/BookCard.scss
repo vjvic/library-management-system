@@ -6,6 +6,9 @@
   padding: $space-2;
   border-radius: $border-radius-sm;
   position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: auto;
 
   img {
     width: 100%;
@@ -17,15 +20,11 @@
     object-fit: cover;
   }
 
-  .subtitle1 {
-    @include text-no-wrap();
-  }
-
   .details {
     margin-top: $space-2;
     margin-bottom: $space-2;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 
     h3 {
       font-weight: bold;

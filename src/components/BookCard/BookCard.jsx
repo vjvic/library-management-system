@@ -4,15 +4,31 @@ import Button from "../Button/Button";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
 import Modal from "../Modal/Modal";
 import BookDetail from "../BookDetail/BookDetail";
+import LinesEllipsis from "react-lines-ellipsis";
 
 const BookCard = ({ book }) => {
   const [showOverlay, setShowOverlay] = useState(false);
 
-  const { title, author, cover, description, pageNumber, rating, releaseDate } =
-    book || {};
+  const {
+    title,
+    author,
+    cover,
+    description,
+    pageNumber,
+    rating,
+    releaseDate,
+    isbn,
+  } = book || {};
 
   const handleButtonClick = () => {
     setShowOverlay(true);
+  };
+
+  const TruncatedText = ({ text, maxLength }) => {
+    const truncatedText =
+      text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+
+    return <span>{truncatedText}</span>;
   };
 
   return (
@@ -21,7 +37,11 @@ const BookCard = ({ book }) => {
         <img src={cover} alt={title} />
         <div className="details">
           <div>
-            <h3 className="subtitle1">{title}</h3>
+            <h3 className="subtitle1">
+              {" "}
+              <TruncatedText text={title} maxLength={16} />
+            </h3>
+
             <p className="subtitle1">{author}</p>
           </div>
 
@@ -41,6 +61,7 @@ const BookCard = ({ book }) => {
           pageNumber={pageNumber}
           rating={rating}
           releaseDate={releaseDate}
+          isbn={isbn}
         />
       </Modal>
     </>

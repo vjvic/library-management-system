@@ -11,6 +11,7 @@ const BookDetail = ({
   pageNumber,
   rating,
   description,
+  isbn,
 }) => {
   return (
     <>
@@ -23,9 +24,15 @@ const BookDetail = ({
             <p className="body2">{releaseDate}</p>
             <p className="body2">{pageNumber} pages</p>
           </div>
+          <div>
+            <p className="body2">{isbn}</p>
+          </div>
           <div className="ratings">
-            <Rating initialValue={rating} readonly size={20} />
-            <p className="body2">{rating?.toFixed(1)} ratings</p>
+            <div>
+              <Rating initialValue={rating} readonly size={20} />
+              <span>{rating?.toFixed(1)} </span>
+            </div>
+            <p className="body2">Ratings</p>
           </div>
         </div>
         <div className="details-buttons">

@@ -4,7 +4,11 @@
 .details-wrapper {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  gap: $space-1;
+  gap: $space-2;
+
+  @media (max-width: $breakpoint-xs) {
+    grid-template-columns: 1fr;
+  }
 
   .detail-1,
   .detail-2 {
@@ -29,9 +33,13 @@
   }
 
   .ratings {
-    margin-top: $space-1;
+    margin: $space-2 0;
     div {
-      @include item-center();
+      @include item-center($space-1);
+    }
+
+    .body2 {
+      color: $tertiary-text;
     }
   }
 }
