@@ -9,6 +9,7 @@ const Button = ({
   children,
   iconLeft,
   iconRight,
+  textLight = false,
 }) => {
   const sizeClass =
     size === "small"
@@ -16,12 +17,13 @@ const Button = ({
       : size === "large"
       ? "button--large"
       : "";
+  const textLightClass = textLight ? "button--text-light" : "";
   const variantClass = variant !== "default" ? `button--${variant}` : "";
   const fullWidthClass = fullWidth ? "button--full" : "";
 
   return (
     <button
-      className={`button ${sizeClass} ${variantClass} ${fullWidthClass}`}
+      className={`button ${sizeClass} ${variantClass} ${fullWidthClass} ${textLightClass}`}
       disabled={disabled}
       onClick={onClick}
     >

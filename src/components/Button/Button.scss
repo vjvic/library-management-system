@@ -15,7 +15,6 @@
   transition: all 0.3s ease;
 
   background-color: $default-color;
-  color: $text-light-color;
 
   &:hover {
     background-color: $hover-color;
@@ -36,13 +35,17 @@
     cursor: not-allowed;
   }
 
+  &--text-light {
+    color: $text-light-color;
+  }
+
   &--full {
     width: 100%;
   }
 
   &--primary {
     background-color: $primary-color-main;
-    color: $text-light-color;
+    color: $primary-text;
 
     &:hover {
       background-color: $primary-color-dark;

@@ -111,11 +111,11 @@ const Home = () => {
       <section className="filter-section">
         <div className="search-wrapper">
           <SearchBar
-            placeholder="Search by name..."
+            placeholder="Search by title, author, ISBN, publisher, md5..."
             value={filters.name}
             onChange={(e) => handleFilterChange("name", e.target.value)}
           />
-          <Button>Search</Button>
+          <Button textLight>Search</Button>
 
           <div className="book-numbers">
             <p>{filteredBookList.length} Books</p>

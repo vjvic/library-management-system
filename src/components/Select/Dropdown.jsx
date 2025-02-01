@@ -11,6 +11,7 @@ const Dropdown = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const [option, setOption] = useState();
 
   const sizeClass =
     size === "small"
@@ -23,6 +24,7 @@ const Dropdown = ({
   const handleSelect = (option) => {
     onChange({ target: { value: option } });
     setIsOpen(false);
+    setOption(option);
   };
 
   useEffect(() => {
@@ -45,7 +47,7 @@ const Dropdown = ({
       } ${sizeClass}`}
     >
       <div className="dropdown-header" onClick={toggleDropdown}>
-        {placeholder}
+        {option ? option : placeholder}
         {isOpen ? (
           <FaChevronUp className="dropdown-icon" />
         ) : (
