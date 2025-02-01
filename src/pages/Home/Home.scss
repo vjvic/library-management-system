@@ -107,3 +107,9 @@
     }
   }
 }
+
+//seperate breadcrub in the future for now it is a static
+.breadcrumb {
+  @include item-center($space-1);
+  color: $primary-color-dark;
+}

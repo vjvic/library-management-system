@@ -8,6 +8,7 @@ import BookCard from "../../components/BookCard/BookCard";
 import Pagination from "../../components/Pagination/Pagination";
 import { useBookContext } from "../../context/BookContext";
 import { filterUniqueYear } from "../../utils/helper";
+import { BiHomeAlt } from "react-icons/bi";
 
 const Home = () => {
   const { bookList, filteredBookList, filters, handleFilterChange } =
@@ -42,6 +43,10 @@ const Home = () => {
 
   return (
     <div>
+      <div className="breadcrumb">
+        <BiHomeAlt />
+        Home
+      </div>
       <section className="filter-section">
         <div className="search-wrapper">
           <SearchBar
