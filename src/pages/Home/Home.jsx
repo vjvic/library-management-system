@@ -19,7 +19,7 @@ const Home = () => {
   const booksPerPage = 10;
 
   //filter unique years for dropdown
-  filterUniqueYear(bookList);
+  const uniqueYears = filterUniqueYear(bookList);
 
   //pagination logic
   const totalPages = Math.ceil(filteredBookList.length / booksPerPage);
