@@ -2,8 +2,13 @@
 @use "../../styles/mixins" as *;
 
 .filter-section {
+  width: 100%;
   max-width: 1000px;
   margin: auto;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 0 $space-1;
+  }
 
   .search-wrapper {
     @include item-center(0);

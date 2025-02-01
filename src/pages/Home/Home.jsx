@@ -1,97 +1,27 @@
 import "./Home.scss";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Button from "../../components/Button/Button";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Checkbox from "../../components/Checkbox/Checkbox";
 import Dropdown from "../../components/Select/Dropdown";
 import BookCard from "../../components/BookCard/BookCard";
-import { getAllBooks } from "../../services/bookService";
 import Pagination from "../../components/Pagination/Pagination";
+import { useBookContext } from "../../context/BookContext";
+import { filterUniqueYear } from "../../utils/helper";
 
 const Home = () => {
+  const { bookList, filteredBookList, filters, handleFilterChange } =
+    useBookContext();
+
   const [isFilter, setIsFilter] = useState(false);
-  const [bookList, setBookList] = useState([]);
-  const [filteredBookList, setFilteredBookList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+
   const booksPerPage = 10;
 
-  const [filters, setFilters] = useState({
-    name: "",
-    exactMatch: false,
-    author: false,
-    publisher: false,
-    yearFrom: "",
-    yearTo: "",
-    languages: [],
-  });
+  //filter unique years for dropdown
+  filterUniqueYear(bookList);
 
-  const matches = (value, filterValue, exactMatch) => {
-    if (!value) return false;
-    const lowerValue = value.toLowerCase();
-    const lowerFilter = filterValue.toLowerCase();
-    return exactMatch
-      ? lowerValue === lowerFilter
-      : lowerValue.includes(lowerFilter);
-  };
-
-  const filterByName = (book, filters) => {
-    if (!filters.name) return true;
-    if (filters.author)
-      return matches(book.author, filters.name, filters.exactMatch);
-    if (filters.publisher)
-      return matches(book.publisher, filters.name, filters.exactMatch);
-    return matches(book.title, filters.name, filters.exactMatch);
-  };
-
-  const filterByYear = (book, filters) => {
-    if (!filters.yearFrom && !filters.yearTo) return true;
-    const bookYear = new Date(book.releaseDate).getFullYear();
-    const fromYear = filters.yearFrom ? Number(filters.yearFrom) : -Infinity;
-    const toYear = filters.yearTo ? Number(filters.yearTo) : Infinity;
-    return bookYear >= fromYear && bookYear <= toYear;
-  };
-
-  const filterByLanguage = (book, filters) => {
-    if (filters.languages.length === 0) return true;
-    return filters.languages.includes(book.language);
-  };
-
-  useEffect(() => {
-    const fetchBooks = async () => {
-      const data = await getAllBooks();
-      setBookList(data);
-      setFilteredBookList(data);
-    };
-    fetchBooks();
-  }, []);
-
-  useEffect(() => {
-    const filteredBooks = bookList.filter(
-      (book) =>
-        filterByName(book, filters) &&
-        filterByYear(book, filters) &&
-        filterByLanguage(book, filters)
-    );
-
-    setFilteredBookList(filteredBooks);
-  }, [filters, bookList]);
-
-  const handleFilterChange = (name, value) => {
-    setFilters((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const uniqueYears = [
-    ...new Set(
-      bookList.map((book) => new Date(book.releaseDate).getFullYear())
-    ),
-  ]
-    .filter((year) => !isNaN(year))
-    .sort((a, b) => a - b);
-
-  // Pagination Logic
+  //pagination logic
   const totalPages = Math.ceil(filteredBookList.length / booksPerPage);
   const displayedBooks = filteredBookList.slice(
     (currentPage - 1) * booksPerPage,
@@ -104,7 +34,11 @@ const Home = () => {
     }
   };
 
-  console.log(bookList);
+  const checkBoxData = [
+    { label: "Exact Matching", name: "exactMatch" },
+    { label: "Authors", name: "author" },
+    { label: "Publisher", name: "publisher" },
+  ];
 
   return (
     <div>
@@ -124,11 +58,7 @@ const Home = () => {
 
         {isFilter && (
           <div className="filters-wrapper">
-            {[
-              { label: "Exact Matching", name: "exactMatch" },
-              { label: "Authors", name: "author" },
-              { label: "Publisher", name: "publisher" },
-            ].map((filter) => (
+            {checkBoxData.map((filter) => (
               <Checkbox
                 key={filter.name}
                 label={filter.label}

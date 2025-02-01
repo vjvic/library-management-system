@@ -4,7 +4,6 @@ import Button from "../Button/Button";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
 import Modal from "../Modal/Modal";
 import BookDetail from "../BookDetail/BookDetail";
-import LinesEllipsis from "react-lines-ellipsis";
 
 const BookCard = ({ book }) => {
   const [showOverlay, setShowOverlay] = useState(false);
