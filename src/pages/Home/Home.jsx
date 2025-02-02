@@ -29,7 +29,7 @@ const Home = () => {
   const uniqueYears = filterUniqueYear(bookList);
 
   //pagination logic
-  const booksPerPage = 5; // 10 book limit per page
+  const booksPerPage = 10; // 10 book limit per page
   const totalPages = Math.ceil(filteredBookList.length / booksPerPage); //calculate the total page example we have 100 books totalpage is 10
   const displayedBooks = filteredBookList.slice(
     // this is the book list after filter and paginate

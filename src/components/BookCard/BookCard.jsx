@@ -8,6 +8,7 @@ import BookDetail from "../BookDetail/BookDetail";
 const BookCard = ({ book }) => {
   const [showOverlay, setShowOverlay] = useState(false);
 
+  // destructure book properties
   const {
     title,
     author,
@@ -19,10 +20,7 @@ const BookCard = ({ book }) => {
     isbn,
   } = book || {};
 
-  const handleButtonClick = () => {
-    setShowOverlay(true);
-  };
-
+  //Truncate text
   const TruncatedText = ({ text, maxLength }) => {
     const truncatedText =
       text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
@@ -46,7 +44,7 @@ const BookCard = ({ book }) => {
 
           <FavoriteButton />
         </div>
-        <Button fullWidth onClick={handleButtonClick}>
+        <Button fullWidth onClick={() => setShowOverlay(true)}>
           View Book
         </Button>
       </div>

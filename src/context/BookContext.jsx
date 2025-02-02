@@ -4,10 +4,11 @@ import { getAllBooks } from "../services/bookService";
 const BookContext = createContext(null);
 
 export const BookProvider = ({ children }) => {
-  const [bookList, setBookList] = useState([]);
-  const [filteredBookList, setFilteredBookList] = useState([]);
-  const [sortOption, setSortOption] = useState("");
+  const [bookList, setBookList] = useState([]); // books state
+  const [filteredBookList, setFilteredBookList] = useState([]); // book state after filter
+  const [sortOption, setSortOption] = useState(""); // sortoption state
   const [filters, setFilters] = useState({
+    // filters state
     name: "",
     exactMatch: false,
     author: false,
@@ -17,6 +18,7 @@ export const BookProvider = ({ children }) => {
     languages: [],
   });
 
+  //fetching books
   useEffect(() => {
     const fetchBooks = async () => {
       const data = await getAllBooks();
