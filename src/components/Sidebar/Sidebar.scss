@@ -15,14 +15,14 @@
   transition: transform 0.3s ease;
 
   @media (max-width: $breakpoint-md) {
-    transform: translateX(-100%);
+    transform: translateX(-100%); // hide navbar
     height: 100vh;
     top: 0;
     z-index: 9999;
   }
 
   @media (max-width: $breakpoint-xs) {
-    width: 100%;
+    width: 100%; // full width when screen is small
   }
 
   &.open {
@@ -30,6 +30,7 @@
   }
 
   .close-sidebar {
+    // siderbar close button
     display: flex;
     justify-content: end;
     margin-bottom: $space-2;

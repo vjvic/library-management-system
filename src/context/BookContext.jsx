@@ -18,17 +18,18 @@ export const BookProvider = ({ children }) => {
     languages: [],
   });
 
-  //fetching books
+  //fetching books (Runs only once when the component mounts)
   useEffect(() => {
     const fetchBooks = async () => {
       const data = await getAllBooks();
-      setBookList(data);
-      setFilteredBookList(data);
+      setBookList(data); // set book state
+      setFilteredBookList(data); // Initializes the filtered list with all books
     };
     fetchBooks();
   }, []);
 
   useEffect(() => {
+    // exact match filter
     const matches = (value, filterValue, exactMatch) => {
       if (!value) return false;
       const lowerValue = value.toLowerCase();
@@ -38,6 +39,7 @@ export const BookProvider = ({ children }) => {
         : lowerValue.includes(lowerFilter);
     };
 
+    // filter by name
     const filterByName = (book) => {
       if (!filters.name) return true;
       if (filters.author)
@@ -47,6 +49,7 @@ export const BookProvider = ({ children }) => {
       return matches(book.title, filters.name, filters.exactMatch);
     };
 
+    // filter by year (range)
     const filterByYear = (book) => {
       if (!filters.yearFrom && !filters.yearTo) return true;
       const bookYear = new Date(book.releaseDate).getFullYear();
@@ -55,16 +58,19 @@ export const BookProvider = ({ children }) => {
       return bookYear >= fromYear && bookYear <= toYear;
     };
 
+    // filter by language (this is not working)
     const filterByLanguage = (book) => {
       if (filters.languages.length === 0) return true;
       return filters.languages.includes(book.language);
     };
 
+    // combining filters
     let filteredBooks = bookList.filter(
       (book) =>
         filterByName(book) && filterByYear(book) && filterByLanguage(book)
     );
 
+    // sorting books by title, author, date
     filteredBooks = [...filteredBooks].sort((a, b) => {
       if (sortOption === "title") return a.title.localeCompare(b.title);
       if (sortOption === "author") return a.author.localeCompare(b.author);

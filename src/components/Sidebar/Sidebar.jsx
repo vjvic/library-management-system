@@ -53,7 +53,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
       {sidebarData.map((s) => (
         <div
-          className={`menu-item ${activeItem === s.id ? "active" : ""}`}
+          className={`menu-item ${activeItem === s.id ? "active" : ""}`} // if activeitem match the looping siderbar item id set active class
           key={s.id}
           onClick={() => handleItemClick(s.id)}
         >
