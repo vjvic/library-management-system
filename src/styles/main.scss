@@ -10,23 +10,24 @@ body {
 }
 
 .app {
+  // layout for navbar and sidebar to avoid overlapping content
   display: grid;
-  grid-template-rows: $navbar-height auto;
-  grid-template-columns: $sidebar-width auto;
+  grid-template-rows: $navbar-height auto; // row same with navbar height
+  grid-template-columns: $sidebar-width auto; // columns same with sidebar width
   height: 100vh;
 
   @media (max-width: $breakpoint-md) {
-    grid-template-columns: 0 auto;
+    grid-template-columns: 0 auto; // hides sidebar when breakpoints is md
   }
 
   .main-content {
     padding: $space-1;
     overflow-y: auto;
-    grid-row: 2 / 3;
-    grid-column: 2 / 3;
+    grid-row: 2 / 3; // place content in 2nd row next below the navbar
+    grid-column: 2 / 3; // place content in 2nd column after the sidebar
 
-    @media (max-width: 1280px) {
-      grid-column: 1 / 3;
+    @media (max-width: $breakpoint-md) {
+      grid-column: 1 / 3; // when below 1280px it expand to cover siderbar space
     }
   }
 }

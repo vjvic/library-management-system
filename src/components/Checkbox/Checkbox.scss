@@ -2,8 +2,7 @@
 @use "../../styles/mixins" as *;
 
 .checkbox {
-  display: inline-flex;
-  align-items: center;
+  @include item-center();
   cursor: pointer;
   gap: $space-1;
 
@@ -21,7 +20,7 @@
     &:checked {
       background-color: $default-color;
       border-color: $default-color;
-
+      // check was reverted this code was fix it
       &::after {
         content: "";
         position: absolute;

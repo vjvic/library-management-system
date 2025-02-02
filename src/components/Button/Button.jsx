@@ -17,8 +17,9 @@ const Button = ({
       : size === "large"
       ? "button--large"
       : "";
-  const textLightClass = textLight ? "button--text-light" : "";
-  const variantClass = variant !== "default" ? `button--${variant}` : "";
+
+  const textLightClass = textLight ? "button--text-light" : ""; // added text light variant for searchbar button
+  const variantClass = variant !== "default" ? `button--${variant}` : ""; // primary or secondary
   const fullWidthClass = fullWidth ? "button--full" : "";
 
   return (

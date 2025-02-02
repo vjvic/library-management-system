@@ -41,7 +41,7 @@ const BookCard = ({ book }) => {
 
             <p className="subtitle1">{author}</p>
           </div>
-
+          {/* this action button is static */}
           <FavoriteButton />
         </div>
         <Button fullWidth onClick={() => setShowOverlay(true)}>
