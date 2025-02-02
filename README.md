@@ -203,6 +203,40 @@ const book = {
 | `book.releaseDate` | `string` | `undefined` | The release date of the book.                                                                                                                         |
 | `book.isbn`        | `string` | `undefined` | The ISBN number of the book.                                                                                                                          |
 
+## Modal Overlay
+
+### Usage
+
+```jsx
+import Modal from "./Modal";
+import { useState } from "react";
+import { MdOutlineClose } from "react-icons/md";
+
+const App = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  return (
+    <div>
+      <button onClick={() => setIsModalOpen(true)}>Open Modal</button>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <h2>Modal Title</h2>
+        <p>This is the modal content.</p>
+      </Modal>
+    </div>
+  );
+};
+
+export default App;
+```
+
+### Props
+
+| Prop Name  | Type        | Default    | Description                                                                     |
+| ---------- | ----------- | ---------- | ------------------------------------------------------------------------------- |
+| `isOpen`   | `boolean`   | `false`    | Controls whether the modal is visible. Pass `true` to show and `false` to hide. |
+| `onClose`  | `function`  | `() => {}` | Callback function triggered when the close button is clicked.                   |
+| `children` | `ReactNode` | `null`     | The content displayed inside the modal.                                         |
+
 ## Sidebar
 
 ### Usage

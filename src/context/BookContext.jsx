@@ -6,7 +6,7 @@ const BookContext = createContext(null);
 export const BookProvider = ({ children }) => {
   const [bookList, setBookList] = useState([]);
   const [filteredBookList, setFilteredBookList] = useState([]);
-  const [sortOption, setSortOption] = useState("title-asc");
+  const [sortOption, setSortOption] = useState("");
   const [filters, setFilters] = useState({
     name: "",
     exactMatch: false,
