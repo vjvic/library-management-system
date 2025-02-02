@@ -3,7 +3,7 @@ import { useState } from "react";
 import Button from "../../components/Button/Button";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Checkbox from "../../components/Checkbox/Checkbox";
-import Dropdown from "../../components/Select/Dropdown";
+import Dropdown from "../../components/Dropdown/Dropdown";
 import BookCard from "../../components/BookCard/BookCard";
 import Pagination from "../../components/Pagination/Pagination";
 import { useBookContext } from "../../context/BookContext";
@@ -37,6 +37,7 @@ const Home = () => {
     currentPage * booksPerPage //end
   );
 
+  // function for changing page
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
       setCurrentPage(newPage);
