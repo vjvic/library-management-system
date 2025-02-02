@@ -328,3 +328,78 @@ const App = () => {
 | Prop            | Type   | Default     | Description                                                                                                              |
 | --------------- | ------ | ----------- | ------------------------------------------------------------------------------------------------------------------------ |
 | `toggleSidebar` | `func` | `undefined` | A function to toggle the sidebar visibility. Typically used to show or hide the sidebar when the menu button is clicked. |
+
+# Project Walkthrough: Reusable Components in My Project
+
+## Dropdown component
+
+I implemented a Dropdown component that could be used anywhere in the app where a list of options is needed. It provides options like customizable size, border styles, placeholder text, and callback functions for option selection.
+
+### Key Decisions
+
+- State Management: I used React's useState and useEffect hooks to manage and update the selected option in the dropdown.
+
+- Flexibility: I allowed the dropdown to be used with a variety of configurations, such as size, bordered, and onChange. These props ensure that it can fit different UI designs and provide flexibility to the parent components.
+
+- Accessibility: I ensured that the dropdown could be opened and closed via a button and that clicking outside the dropdown would close it. I achieved this by using useRef and useEffect to detect clicks outside of the dropdown.
+
+## Reusable Button Component
+
+I created a Button component to standardize button behavior across the app. The button can be configured with different types (primary, secondary, etc.), sizes, and disabled states.
+
+### Key Decisions
+
+- Style Variants: I used SCSS to define different styles for button types. The button accepts a type prop which determines its appearance.
+
+- Accessibility: Buttons are accessible by default, but I added a disabled state to ensure the button is visually styled as disabled and doesn't trigger actions when clicked.
+
+## Searchbar Component
+
+### Key Decisions
+
+- Simplicity & Reusability: The design is kept minimal and clean, focusing on ease of use and reusability. It can be dropped into any part of the app that requires a search feature.
+
+## Pagination Component
+
+### Key Decisions
+
+- Dynamic Page Rendering: I used the Array constructor to generate page numbers based on the totalPages prop. This allows the component to adjust automatically, whether there are 2 pages or 20, ensuring flexibility without extra code changes.
+
+- Reusability & Customization The component accepts currentPage, totalPages, and onPageChange as props, allowing it to work seamlessly with different datasets and parent components. It’s also designed to hide itself if there’s only one page, reducing unnecessary UI clutter.
+
+## Siderbar Component
+
+### Key Decisions
+
+- Dynamic Menu Rendering: The sidebar items are generated from the sidebarData array, making it easy to add, remove, or update menu items without modifying the core logic. This improves flexibility and reduces repetitive code.
+
+- Active Item Highlighting: I used useState to track the currently active menu item. When a menu item is clicked, it updates the active state, applying the active CSS class for clear visual feedback.
+
+- Conditional Badge Display: A notification badge is conditionally displayed next to the "Favorites" menu item (id === 2), showing hardcoded data ("24") for demonstration. This feature can be extended for dynamic notifications.
+
+## Navbar Component
+
+### Key Decisions
+
+- Sidebar Toggle Integration: The menu button triggers the toggleSidebar function passed as a prop. This allows the Navbar to control the sidebar’s visibility, especially useful for mobile responsiveness.
+  Brand Identity:
+
+- The logo is placed prominently next to the menu button, reinforcing brand visibility. It’s imported as an SVG for better scalability and performance.
+
+- Responsive Design: The structure supports a responsive layout, with the sidebar toggle enhancing usability on smaller screens.
+
+## Bookcard Component
+
+### Key Decisions
+
+- State Management: I used useState to manage the showOverlay state, which controls the visibility of the book detail modal when the "View Book" button is clicked.
+
+- I ensured the button spans the full width using the fullWidth prop for consistency in layout across different screen sizes.
+
+## Checkbox Component
+
+### Key Decisions
+
+- Customizable Sizes: The size prop allows the checkbox to be rendered in small, medium (default), or large sizes. I used dynamic class assignment to handle size-based styling.
+
+- Conditional Label: The label prop is optional. It only renders if provided, making the component flexible for use cases where no label is needed.

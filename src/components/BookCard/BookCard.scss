@@ -10,7 +10,7 @@
   max-width: 300px;
 
   @media (max-width: $breakpoint-xs) {
-    margin: auto;
+    margin: auto; // center bookcard if smaller screen
   }
 
   img {

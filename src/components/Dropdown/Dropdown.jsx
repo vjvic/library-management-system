@@ -10,7 +10,7 @@ const Dropdown = ({
   size,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef(null); // References the dropdown DOM element
   const [option, setOption] = useState();
 
   const sizeClass =
@@ -22,15 +22,15 @@ const Dropdown = ({
 
   const toggleDropdown = () => setIsOpen(!isOpen);
   const handleSelect = (option) => {
-    onChange({ target: { value: option } });
-    setIsOpen(false);
-    setOption(option);
+    onChange({ target: { value: option } }); // Triggers the parent onChange
+    setIsOpen(false); // Closes the dropdown
+    setOption(option); // Updates the selected option
   };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false);
+        setIsOpen(false); // Closes if the click is outside the dropdown
       }
     };
     document.addEventListener("mousedown", handleClickOutside);

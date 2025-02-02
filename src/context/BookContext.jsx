@@ -35,8 +35,8 @@ export const BookProvider = ({ children }) => {
       const lowerValue = value.toLowerCase();
       const lowerFilter = filterValue.toLowerCase();
       return exactMatch
-        ? lowerValue === lowerFilter
-        : lowerValue.includes(lowerFilter);
+        ? lowerValue === lowerFilter // return this if exact match is true
+        : lowerValue.includes(lowerFilter); // return this if exact match false
     };
 
     // filter by name
@@ -72,16 +72,18 @@ export const BookProvider = ({ children }) => {
 
     // sorting books by title, author, date
     filteredBooks = [...filteredBooks].sort((a, b) => {
-      if (sortOption === "title") return a.title.localeCompare(b.title);
-      if (sortOption === "author") return a.author.localeCompare(b.author);
+      if (sortOption === "title") return a.title.localeCompare(b.title); // alphabetical
+      if (sortOption === "author") return a.author.localeCompare(b.author); //alphabetical
       if (sortOption === "date")
+        // Chronological order
         return new Date(a.releaseDate) - new Date(b.releaseDate);
       return 0;
     });
 
-    setFilteredBookList(filteredBooks);
-  }, [filters, bookList, sortOption]);
+    setFilteredBookList(filteredBooks); // updates the filtered books to reflect the applied filters and sorts
+  }, [filters, bookList, sortOption]); // dependency array (render when filters, booklist, sortoption changes)
 
+  // filters change function
   const handleFilterChange = (name, value) => {
     setFilters((prev) => ({
       ...prev,
@@ -89,6 +91,7 @@ export const BookProvider = ({ children }) => {
     }));
   };
 
+  // sort change function
   const handleSortChange = (value) => {
     setSortOption(value);
   };
