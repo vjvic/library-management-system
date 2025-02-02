@@ -8,6 +8,7 @@
   gap: 0.5rem;
   margin-top: 1rem;
 
+  // style for clickable number button
   button.pagination-button {
     height: 40px;
     width: 40px;
@@ -23,7 +24,7 @@
 
     &.active {
       background-color: $default-color;
-      color: #fff;
+      color: $primary-text-light;
       border-color: $default-color;
 
       &:hover {

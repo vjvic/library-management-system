@@ -116,6 +116,22 @@ import SearchBar from "./SearchBar";
 ```jsx
 import Pagination from "./Pagination";
 
+//pagination logic
+const booksPerPage = 10; // 10 book limit per page
+const totalPages = Math.ceil(filteredBookList.length / booksPerPage); //calculate the total page example we have 100 books totalpage is 10
+const displayedBooks = filteredBookList.slice(
+  // this is the book list after filter and paginate
+  (currentPage - 1) * booksPerPage, //start
+  currentPage * booksPerPage //end
+);
+
+// function for changing page
+const handlePageChange = (newPage) => {
+  if (newPage >= 1 && newPage <= totalPages) {
+    setCurrentPage(newPage);
+  }
+};
+
 <Pagination
   currentPage={currentPage}
   totalPages={totalPages}
