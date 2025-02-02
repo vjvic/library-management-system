@@ -39,7 +39,7 @@ export const BookProvider = ({ children }) => {
         : lowerValue.includes(lowerFilter); // return this if exact match false
     };
 
-    // filter by name
+    // filter by name (title, author, publisher)
     const filterByName = (book) => {
       if (!filters.name) return true;
       if (filters.author)
