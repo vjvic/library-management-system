@@ -11,6 +11,7 @@ import { filterUniqueYear } from "../../utils/helper";
 import { BiHomeAlt } from "react-icons/bi";
 
 const Home = () => {
+  // book context
   const {
     bookList,
     filteredBookList,
@@ -23,16 +24,17 @@ const Home = () => {
   const [isFilter, setIsFilter] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const booksPerPage = 10;
-
-  //filter unique years for dropdown
+  //filter unique years
+  // option value for dropdown
   const uniqueYears = filterUniqueYear(bookList);
 
   //pagination logic
-  const totalPages = Math.ceil(filteredBookList.length / booksPerPage);
+  const booksPerPage = 10; // 10 book limit per page
+  const totalPages = Math.ceil(filteredBookList.length / booksPerPage); //calculate the total page example we have 100 books totalpage is 10
   const displayedBooks = filteredBookList.slice(
-    (currentPage - 1) * booksPerPage,
-    currentPage * booksPerPage
+    // this is the book list after filter and paginate
+    (currentPage - 1) * booksPerPage, //start
+    currentPage * booksPerPage //end
   );
 
   const handlePageChange = (newPage) => {
@@ -41,6 +43,7 @@ const Home = () => {
     }
   };
 
+  // checkbox data label and name
   const checkBoxData = [
     { label: "Exact Matching", name: "exactMatch" },
     { label: "Authors", name: "author" },
@@ -49,10 +52,12 @@ const Home = () => {
 
   return (
     <div>
+      {/* this is display only not the actual breadcrumb */}
       <div className="breadcrumb">
         <BiHomeAlt />
         Home
       </div>
+      {/* filter section */}
       <section className="filter-section">
         <div className="search-wrapper">
           <SearchBar
@@ -67,6 +72,7 @@ const Home = () => {
           </div>
         </div>
 
+        {/* only show filter if filter is click  */}
         {isFilter && (
           <div className="filters-wrapper">
             {checkBoxData.map((filter) => (
@@ -110,6 +116,7 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Book section */}
       <section className="book-section">
         <div className="filter-book">
           <Dropdown
@@ -132,7 +139,7 @@ const Home = () => {
             <BookCard key={book.id} book={book} />
           ))}
         </div>
-
+        {/* only show the pagination if page is > than 1 */}
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
@@ -146,11 +153,4 @@ const Home = () => {
 export default Home;
 
 //todo
-// clean up code
-// seperate overlay
-// imporve details overlay
-// seperate filter logic
-// create transition variables
-// responsiveness
-// refactor code
-// improve bookcard
+// seperate section

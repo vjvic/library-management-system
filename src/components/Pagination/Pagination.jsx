@@ -11,6 +11,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
         iconLeft={<FaArrowLeft size={24} />}
+        textLight
       >
         Back
       </Button>
@@ -31,6 +32,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
         iconRight={<FaArrowRight size={24} />}
+        textLight
       >
         Next
       </Button>
