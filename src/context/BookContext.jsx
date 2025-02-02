@@ -6,6 +6,7 @@ const BookContext = createContext(null);
 export const BookProvider = ({ children }) => {
   const [bookList, setBookList] = useState([]);
   const [filteredBookList, setFilteredBookList] = useState([]);
+  const [sortOption, setSortOption] = useState("title-asc");
   const [filters, setFilters] = useState({
     name: "",
     exactMatch: false,
@@ -57,13 +58,21 @@ export const BookProvider = ({ children }) => {
       return filters.languages.includes(book.language);
     };
 
-    const filteredBooks = bookList.filter(
+    let filteredBooks = bookList.filter(
       (book) =>
         filterByName(book) && filterByYear(book) && filterByLanguage(book)
     );
 
+    filteredBooks = [...filteredBooks].sort((a, b) => {
+      if (sortOption === "title") return a.title.localeCompare(b.title);
+      if (sortOption === "author") return a.author.localeCompare(b.author);
+      if (sortOption === "date")
+        return new Date(a.releaseDate) - new Date(b.releaseDate);
+      return 0;
+    });
+
     setFilteredBookList(filteredBooks);
-  }, [filters, bookList]);
+  }, [filters, bookList, sortOption]);
 
   const handleFilterChange = (name, value) => {
     setFilters((prev) => ({
@@ -72,9 +81,20 @@ export const BookProvider = ({ children }) => {
     }));
   };
 
+  const handleSortChange = (value) => {
+    setSortOption(value);
+  };
+
   return (
     <BookContext.Provider
-      value={{ bookList, filteredBookList, filters, handleFilterChange }}
+      value={{
+        bookList,
+        filteredBookList,
+        filters,
+        handleFilterChange,
+        sortOption,
+        handleSortChange,
+      }}
     >
       {children}
     </BookContext.Provider>

@@ -11,8 +11,14 @@ import { filterUniqueYear } from "../../utils/helper";
 import { BiHomeAlt } from "react-icons/bi";
 
 const Home = () => {
-  const { bookList, filteredBookList, filters, handleFilterChange } =
-    useBookContext();
+  const {
+    bookList,
+    filteredBookList,
+    filters,
+    handleFilterChange,
+    handleSortChange,
+    sortOption,
+  } = useBookContext();
 
   const [isFilter, setIsFilter] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -117,6 +123,8 @@ const Home = () => {
             bordered={false}
             options={["Title", "Author", "Publication Date"]}
             size="small"
+            value={sortOption}
+            onChange={(e) => handleSortChange(e.target.value.toLowerCase())}
           />
         </div>
         <div className="books-wrapper">
