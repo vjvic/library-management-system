@@ -6,8 +6,19 @@
 ## TechStack
 
 - React
+- React Context API (State Management)
 - Scss
 - Axios
+
+## Features
+
+- Book list
+- Book details
+- Filter by title, exact matching, authors, publisher, yearfrom, yearto
+- Filter to select languages, but it’s not working because the API isn’t providing the languages
+- Sort by (title, author, publication date)
+- Navbar
+- Sidebar
 
 ## Prerequisites
 
