@@ -21,9 +21,10 @@ const BookCard = ({ book }) => {
   } = book || {};
 
   //Truncate text
+  // takes two props - string & maxlength
   const TruncatedText = ({ text, maxLength }) => {
     const truncatedText =
-      text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+      text.length > maxLength ? text.substring(0, maxLength) + "..." : text; // if text length is greater than max  length cut the text and put ...
 
     return <span>{truncatedText}</span>;
   };

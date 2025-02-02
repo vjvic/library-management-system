@@ -112,4 +112,5 @@
 .breadcrumb {
   @include item-center($space-1);
   color: $primary-color-dark;
+  margin-left: $space-4;
 }
