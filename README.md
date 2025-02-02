@@ -1,6 +1,7 @@
 # Libary Management System
 
 ![Screenshot of the Project](public/library-management-system.jpg)
+![Screenshot of the Project](public/book-detail.jpg)
 
 ## TechStack
 
