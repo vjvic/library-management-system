@@ -8,7 +8,10 @@
   position: relative;
   width: 100%;
   max-width: 300px;
-  margin: auto;
+
+  @media (max-width: $breakpoint-xs) {
+    margin: auto;
+  }
 
   img {
     width: 160px;
